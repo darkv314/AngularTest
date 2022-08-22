@@ -1,0 +1,6 @@
+<div class="cuadro">
+  <p>Nombre: {{ name | uppercase }}</p>
+  <p>Size: {{ size | talla }}</p>
+  <p>Stock: {{ stock }}</p>
+  <button [disabled]="!stock" (click)="comprar()">Comprar</button>
+</div>
