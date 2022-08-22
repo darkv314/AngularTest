@@ -1,10 +1,16 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appShared2]'
+  selector: '[colBack]',
 })
 export class Shared2Directive {
+  @Input() set colBack(val: number) {
+    if (!val) this.element.nativeElement.style.backgroundColor = 'red';
+    else if (!this.colBack)
+      this.element.nativeElement.style.backgroundColor = 'orange';
+  }
 
-  constructor() { }
+  constructor(elemen: ElementRef) {}
 
+  ngOnChanges() {}
 }
